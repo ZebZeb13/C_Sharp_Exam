@@ -18,6 +18,25 @@ namespace Isen.Picard_Chamayou.Library
         //depth = int + getter
         public int depth { get; }
 
+        public void AddChildNode(Node node)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddNodes(IEnumerable<Node> nodeList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveChildNode(Node node)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveChildNotde(Guid id)
+        {
+            throw new NotImplementedException();
+        }
         public bool Equals(Node other)
         {
             //si other reference un objet null
@@ -35,4 +54,5 @@ namespace Isen.Picard_Chamayou.Library
             else return false;
         }
     }
+       
 }

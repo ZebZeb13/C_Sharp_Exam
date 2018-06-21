@@ -11,5 +11,11 @@ namespace Isen.Picard_Chamayou.Library
         List<Node> children { get; set; }
         int depth { get; }
 
+         void AddChildNode(Node node);
+        void AddNodes(IEnumerable<Node> nodeList);
+        void RemoveChildNotde(Guid id);
+        void RemoveChildNode(Node node);
+
+
     }
 }
