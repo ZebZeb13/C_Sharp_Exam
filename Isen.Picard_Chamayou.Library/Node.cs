@@ -20,23 +20,75 @@ namespace Isen.Picard_Chamayou.Library
 
         public void AddChildNode(Node node)
         {
-            throw new NotImplementedException();
+            node.parent = this;
+            this.children.Add(node);
         }
 
         public void AddNodes(IEnumerable<Node> nodeList)
         {
-            throw new NotImplementedException();
+           foreach (var node in nodeList)
+            {
+                AddChildNode(node);
+            }
         }
 
-        public void RemoveChildNode(Node node)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public void RemoveChildNotde(Guid id)
         {
-            throw new NotImplementedException();
+            foreach (var node in children)
+            {
+                if (id == node.id){
+                    this.children.Remove(node);
+                }
+            }
         }
+
+         public void RemoveChildNode(Node node)
+        {
+           foreach (var nod in children)
+            {
+                if (node.Equals(nod)){
+                    this.children.Remove(nod);
+                }
+            }
+        }
+
+    public Node FindTraversing(Guid id)
+        {
+            if (children == null){
+                return null;
+            }
+            foreach (var nod in children)
+            {
+                if (nod.id == id){
+                    return  nod;
+                }
+                var ret = nod.FindTraversing(id);
+                if (ret != null){
+                    return ret;
+                }
+            }
+            return null;
+        }
+
+        public Node FindTraversing(Node node)
+        {
+            if (children == null){
+                return null;
+            }
+            foreach (var nod in children)
+            {
+                if (nod.Equals(node)){
+                    return  nod;
+                }
+                var ret = nod.FindTraversing(node);
+                if (ret != null){
+                    return ret;
+                }
+            }
+            return null;
+        }
+        
         public bool Equals(Node other)
         {
             //si other reference un objet null
@@ -48,11 +100,13 @@ namespace Isen.Picard_Chamayou.Library
                 return false;
             }
             //si les id et les values sont egaux
-            if(id.Equals(other.id) && string.Equals(value, other.value)){
+            if(this.id.Equals(other.id) && string.Equals(this.value, other.value)){
                 return true;
             }
             else return false;
         }
+
+    
     }
        
 }

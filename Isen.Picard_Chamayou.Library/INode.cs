@@ -16,6 +16,7 @@ namespace Isen.Picard_Chamayou.Library
         void RemoveChildNotde(Guid id);
         void RemoveChildNode(Node node);
 
-
+        Node FindTraversing(Guid id);
+        Node FindTraversing(Node node);
     }
 }
