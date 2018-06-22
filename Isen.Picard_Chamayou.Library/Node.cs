@@ -15,8 +15,18 @@ namespace Isen.Picard_Chamayou.Library
 
         //children = list<Node> + getter + setter
         public List<Node> children { get; set; }
-        //depth = int + getter
-        public int depth { get; }
+        //depth = int
+        public int depth => parent?.depth +1 ?? 0;
+
+
+        public Node(string value)
+        {
+            this.value = value;
+            id = new Guid();
+            children = new List<Node>();
+            parent = null;
+        }
+
 
         public void AddChildNode(Node node)
         {
@@ -105,8 +115,23 @@ namespace Isen.Picard_Chamayou.Library
             }
             else return false;
         }
+public override string ToString()
+        {
+            String str = "";
+            for (var i = 0; i < this.depth; i++)
+            {
+                str += "|-";
+            }
+            str += this.value +"  "+ this.id.ToString("B");
+            foreach (var child in children)
+            {
+                str += Environment.NewLine + child.ToString();
+            }
 
-    
+            return str;
+        }
     }
+
+   
        
 }

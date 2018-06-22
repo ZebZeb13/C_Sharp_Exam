@@ -18,5 +18,7 @@ namespace Isen.Picard_Chamayou.Library
 
         Node FindTraversing(Guid id);
         Node FindTraversing(Node node);
+
+        string ToString();
     }
 }
