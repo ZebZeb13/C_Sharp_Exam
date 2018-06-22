@@ -8,18 +8,20 @@ namespace Isen.Picard_Chamayou.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Example ...");
+            var i1 = new Node<string>("Item1");
 
-            Node i1 = new Node("Item1");
-            Node i11 = new Node("Item11");
-            Node i12= new Node("Item12");
-            Node i13 = new Node("Item13");
-            Node i111 = new Node("Item111");
-            Node i112 = new Node("Item112");
-            Node i113 = new Node("Item112");
-            Node i1111 = new Node("Item1111");
-            Node i1121 = new Node("Item1121");
-            Node i1122 = new Node("Item1122");
+            var i11 = new Node<string>("Item11");
+            var i12= new Node<string>("Item12");
+            var i13 = new Node<string>("Item13");
+        
+            var i111 = new Node<string>("Item111");
+            var i112 = new Node<string>("Item112");
+            var i113 = new Node<string>("Item112");
+            
+            var i1111 = new Node<string>("Item1111");
+            var i1121 = new Node<string>("Item1121");
+            var i1122 = new Node<string>("Item1122");
 
             i1.AddChildNode(i11);
             i11.AddChildNode(i111);
